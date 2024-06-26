@@ -6,5 +6,5 @@ git commit -am "$message"
 git push
 ssh joaovitoralmeidas@34.151.221.54 \
     'git -C /home/joaovitoralmeidas/devOps/DevOps-poject/ ' \
-    'git pull && npm build' \
+    'git pull && npm run build' \
     'pm2 restart 0 && sudo systemctl restart nginx'
