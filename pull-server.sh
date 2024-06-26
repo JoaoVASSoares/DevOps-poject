@@ -18,7 +18,7 @@ git push
 ssh joaovitoralmeidas@34.151.221.54 << EOF
     cd /home/joaovitoralmeidas/devOps/DevOps-poject/
     git pull
-    npm run build
-    pm2 restart 0
+    /home/joaovitoralmeidas/.nvm/versions/node/v20.15.0/bin/npm run build
+    /home/joaovitoralmeidas/.nvm/versions/node/v20.15.0/bin/pm2 restart 0
     sudo systemctl restart nginx
 EOF
