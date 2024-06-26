@@ -19,6 +19,14 @@ echo "Push realizado"
 
 # Executar comandos no servidor remoto via SSH
 ssh joaovitoralmeidas@34.151.221.54 << 'EOF'
+    # Carregar o ambiente NVM
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # Carregar NVM
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # Carregar NVM bash_completion
+
+    # Usar a versão padrão do node
+    nvm use default
+
     cd /home/joaovitoralmeidas/devOps/DevOps-poject/
     echo "Diretório do projeto alterado"
     
