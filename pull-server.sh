@@ -33,12 +33,19 @@ ssh joaovitoralmeidas@34.151.221.54 << 'EOF'
     git pull
     echo "Repositório atualizado"
     
-    npm run build
-    echo "Build concluída"
-    
-    pm2 restart 0
-    echo "PM2 reiniciado"
-    
+    # Construindo uma nova imagem Docker
+    docker build -t devops-project .  
+
+    # Parar e remover o conteiner antigo, se estiver rodando
+    docker stop devopsproject-container || true
+    docker rm devopsproject-container || true
+
+    # Rodar um novo container
+    docker run -d -p 3000:3000 --name devopsproject-container devops-project
+
+    # Remover imagens antigas não utilizadas
+    docker image prune -f
+
     sudo systemctl restart nginx
     echo "Nginx reiniciado"
 EOF
